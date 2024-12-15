@@ -3,9 +3,9 @@ Documentation  Database Testing in Robot Framework
 Library  DatabaseLibrary
 
 *** Variables ***
-${DBName}  database-name
-${DBUser}  username
-${DBPassword}  password
+${DBName}  localtest_133
+${DBUser}  admin_133
+${DBPassword}  password_123
 ${DBHost}  db4free.net
 ${DBPort}  3306
 

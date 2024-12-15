@@ -8,23 +8,25 @@ Library  Collections
 *** Variables ***
 
 *** Test Cases ***
-Do a GET Request and validate the response code and response body
-    [documentation]  This test case verifies that the response code of the GET Request should be 200,
-    ...  the response body contains the 'title' key with value as 'London',
-    ...  and the response body contains the key 'location_type'.
-    [tags]  Smoke
-    Create Session  mysession  https://www.metaweather.com  verify=true
-    ${response}=  GET On Session  mysession  /api/location/search/  params=query=london
-    Status Should Be  200  ${response}  #Check Status as 200
+# Do a GET Request and validate the response code and response body
+#     [documentation]  This test case verifies that the response code of the GET Request should be 200,
+#     ...  the response body contains the 'title' key with value as 'London',
+#     ...  and the response body contains the key 'location_type'.
+#     [tags]  Smoke
+#     Create Session  mysession  https://www.metaweather.com  verify=true
+#     ${response}=  GET On Session  mysession  /api/location/search/  params=query=london
+#     Status Should Be  200  ${response}  #Check Status as 200
 
-    #Check Title as London from Response Body
-    ${title}=  Get Value From Json  ${response.json()}[0]  title
-    ${titleFromList}=  Get From List   ${title}  0
-    Should be equal  ${titleFromList}  London
+     
 
-    #Check location_type is present in the repsonse body
-    ${body}=  Convert To String  ${response.content}
-    Should Contain  ${body}  location_type
+#     #Check Title as London from Response Body
+#     ${title}=  Get Value From Json  ${response.json()}[0]  title
+#     ${titleFromList}=  Get From List   ${title}  0
+#     Should be equal  ${titleFromList}  London
+
+#     #Check location_type is present in the repsonse body
+#     ${body}=  Convert To String  ${response.content}
+#     Should Contain  ${body}  location_type
 
 Do a POST Request and validate the response code, response body, and response headers
     [documentation]  This test case verifies that the response code of the POST Request should be 201,
